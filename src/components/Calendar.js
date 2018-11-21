@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 import classnames from 'classnames';
 import { getModsByCompType } from '../utils/util';
@@ -6,15 +6,6 @@ import { getModsByCompType } from '../utils/util';
 import Month from './Month';
 
 export default class Calendar extends Component {
-  static propTypes = {
-    startDate: PropTypes.object.isRequired,
-    endDate: PropTypes.object.isRequired,
-    weekNumbers: PropTypes.bool,
-    locale: PropTypes.string,
-    month: PropTypes.array,
-    yearHeaderFormat: PropTypes.string
-  };
-
   static defaultProps = {
     locale: 'en',
     yearHeaderFormat: 'YYYY'

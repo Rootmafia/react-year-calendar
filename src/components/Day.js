@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
 import { getMods } from '../utils/util';
@@ -52,14 +52,6 @@ const Day = (props) => {
   );
 };
 
-Day.propTypes = {
-  date: React.PropTypes.object.isRequired,
-  dayAgenda: React.PropTypes.bool,
-  dayHeader: React.PropTypes.bool,
-  dayHeaderFormat: React.PropTypes.string,
-  dayFormat: React.PropTypes.string,
-  mods: PropTypes.array
-};
 
 Day.defaultProps = {
   dayAgenda: false,

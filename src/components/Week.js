@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
 import { getMods, getModsByCompType } from '../utils/util';
@@ -13,8 +13,8 @@ const makeWeekNumber = (props) => {
   }
 
   return (
-    <div key="weekNumber" className={ classnames(`${clsPrefix}-number`) }>
-      { props.date.format(props.weekNumberFormat) }
+    <div key="weekNumber" className={classnames(`${clsPrefix}-number`)}>
+      {props.date.format(props.weekNumberFormat)}
     </div>
   );
 };
@@ -28,8 +28,8 @@ const renderWeekHeader = (props) => {
     <div className={`${clsPrefix}-weekdays`}>
       {
         daysOfWeek(props.date).map((weekday, i) =>
-          <div key={ `weekday-header-${i}` } className={ classnames(`${clsPrefix}-weekdays-weekday`) }>
-            { weekday.format(props.weekdayFormat) }
+          <div key={`weekday-header-${i}`} className={classnames(`${clsPrefix}-weekdays-weekday`)}>
+            {weekday.format(props.weekdayFormat)}
           </div>
         )
       }
@@ -54,10 +54,10 @@ const Week = (props) => {
   }
 
   return (
-    <div key="days" className={ classnames(clsPrefix, clsMods) } { ...events }>
-      { renderWeekHeader(props) }
-      { makeWeekNumber(props) }
-      <div className={ classnames(`${clsPrefix}-days`) }>
+    <div key="days" className={classnames(clsPrefix, clsMods)} {...events}>
+      {renderWeekHeader(props)}
+      {makeWeekNumber(props)}
+      <div className={classnames(`${clsPrefix}-days`)}>
         {
           daysOfWeek(props.date).map((date, i) => {
             let outside;
@@ -66,19 +66,12 @@ const Week = (props) => {
               outside = Boolean(props.edges.find((edge, j) => edge.isSame(date, 'month', 'week', 'year')));
             }
 
-            return <Day outside={ !!outside } key={ `day-${i}` } date={ date } mods={ day } />
+            return <Day outside={!!outside} key={`day-${i}`} date={date} mods={day}/>;
           })
         }
       </div>
     </div>
   );
-};
-
-Week.propTypes = {
-  weekHeader: PropTypes.bool,
-  weekNumbers: PropTypes.bool,
-  weekNumberFormat: PropTypes.string,
-  weekdayFormat: PropTypes.string,
 };
 
 Week.defaultProps = {

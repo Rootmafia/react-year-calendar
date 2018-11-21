@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { monthEdges, weeksOfMonth, daysOfWeek } from '../utils/dateUtils';
 import { getMods, getModsByCompType } from '../utils/util';
 import Week from './Week';
-import Day from './Day';
 
 const clsPrefix = 'rc-Month';
 
@@ -87,14 +86,6 @@ const Month = (props) => {
       }
     </div>
   );
-};
-
-Month.propTypes = {
-  monthNames: PropTypes.bool,
-  monthNameFormat: PropTypes.string,
-  weekdayNames: PropTypes.bool,
-  weekdayFormat: PropTypes.string,
-  mod: PropTypes.object
 };
 
 Month.defaultProps = {
